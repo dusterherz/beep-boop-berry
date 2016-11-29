@@ -61,7 +61,7 @@ class BeepBoop():
         """
 
         delay = 1 / note / 2
-        cycles = int(time * pitch)
+        cycles = int(time * note)
 
         for i in range(cycles):
             GPIO.output(self.pin, True)
