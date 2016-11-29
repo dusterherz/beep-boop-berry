@@ -2,11 +2,6 @@
 
 This module can make your Raspberry sing if you have a Piezzo-Beeper connected
 to it.
-
-Todo:
-    * EVERYTHING
-    * Make some examples
-    * A tutorial to connect a buzzer and make it sing the Imperial March
 """
 
 from enum import IntEnum
@@ -18,9 +13,6 @@ class BeepBoop():
     """
     The main class of the module. Without that, you can't make a sound. It needs
     the pin where the buzzer is connected to be initialize.
-
-    Attributes :
-        pin (int): the pin where the buzzer is connected
     """
     class Note(IntEnum):
         A = 440.0
