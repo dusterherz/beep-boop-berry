@@ -5,4 +5,4 @@ from beep_boop_berry import BeepBoop
 
 beep = BeepBoop(2)
 beep.beep(1)
-boop.beeps(1, 1, 5)
+beep.beeps(1, 1, 5)
