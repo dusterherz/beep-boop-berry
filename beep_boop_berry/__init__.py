@@ -22,6 +22,20 @@ class BeepBoop():
     Attributes :
         pin (int): the pin where the buzzer is connected
     """
+    class Note(IntEnum):
+        A = 440.0
+        Ad = 466.16
+        B = 493.88
+        C = 261.63
+        D = 293.66
+        Dd = 311.13
+        E = 329.63
+        F = 349.23
+        Fd = 369.99
+        G = 392.0
+        Gd = 415.30
+        blank = 0
+
     def __init__(self, pin):
         self.pin = pin
         GPIO.setmode(GPIO.BCM)
@@ -29,12 +43,34 @@ class BeepBoop():
 
     def beep(self, time):
         """
-            Make your beeper to sing a small *Beep*.
+            Make your beeper sing a small *Beep*.
             time is the duration of the beep in seconds
         """
-        pitch = 440
-        delay = 1 / pitch / 2
-        cycles = int(time * pitch)
+        self.note(BeepBoop.Note.A, time)
+
+    def beeps(self, timeOn, timeOff, repeat):
+        """
+            Make your beeper sing multiples *Beep*.
+            timeOn is the duration of the beep in seconds
+            timeOff is the duration of the silence in secons
+            repeat correspond to the number of time the beeper must beep.
+
+        """
+
+        self.notes(BeepBoop.Note.A, timeOn, timeOff, repeat)
+
+    def note(self, note, time):
+        """
+            Make your beeper sing a single note.
+            note is a note from the enum Note
+            time is the duration he the beep in seconds
+        """
+
+        if note == BeepBoop.Note.blank:
+            sleep(time)
+
+        delay = 1.0 / note / 2.0
+        cycles = int(time * note)
 
         for i in range(cycles):
             GPIO.output(self.pin, True)
@@ -42,14 +78,24 @@ class BeepBoop():
             GPIO.output(self.pin, False)
             sleep(delay)
 
-    def beeps(self, timeOn, timeOff, repeat):
+    def notes(self, note, timeOn, timeOff, repeat):
         """
-            Make your beeper to sing multiples *Beep*.
+            Make your beeper sing multiples notes.
             time is the duration of the beep in seconds
-            repeat correspond to the numer of time the beeper must beep.
-
+            timeOff is the duration of the silence in secons
+            repeat correspond to the number of time the beeper must beep.
         """
 
         for i in range(repeat):
-            self.beep(timeOn)
+            self.note(note, timeOn)
             sleep(timeOff)
+
+    def song(self, notes):
+        """
+            Make a song !
+            notes is a list of dict like {"note":BeepBoop.Note.A, "time":1}
+            See beep.py in folder Examples if you want a example !
+        """
+
+        for note in notes:
+            self.note(note['note'], note['time'])
