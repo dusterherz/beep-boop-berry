@@ -32,7 +32,8 @@ class BeepBoop():
             Make your beeper to sing a small *Beep*.
             time is the duration of the beep in seconds
         """
-        delay = 1 / 440 / 2
+        pitch = 440
+        delay = 1 / pitch / 2
         cycles = int(time * pitch)
 
         for i in range(cycles):
