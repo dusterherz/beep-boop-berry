@@ -9,8 +9,8 @@ Todo:
     * A tutorial to connect a buzzer and make it sing the Imperial March
 """
 
-from Enum import IntEnum
-from RPi.GPIO as GPIO
+from enum import IntEnum
+import RPi.GPIO as GPIO
 import time
 
 
