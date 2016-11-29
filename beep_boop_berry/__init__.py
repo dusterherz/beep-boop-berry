@@ -65,7 +65,7 @@ class BeepBoop():
         if note == BeepBoop.Note.blank :
             sleep(time)
 
-        delay = 1.0 / note / 2.0
+        delay = 1.0 / note / 2.0 / 2.0
         cycles = int(time * note)
 
         for i in range(cycles):
