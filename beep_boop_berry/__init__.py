@@ -22,6 +22,16 @@ class BeepBoop():
     Attributes :
         pin (int): the pin where the buzzer is connected
     """
+    class Note(IntEnum):
+        A = 440
+        B = 494
+        C = 262
+        D = 294
+        E = 330
+        F = 349
+        G = 392
+        blank = 0
+
     def __init__(self, pin):
         self.pin = pin
         GPIO.setmode(GPIO.BCM)
@@ -36,20 +46,50 @@ class BeepBoop():
         delay = 1 / pitch / 2
         cycles = int(time * pitch)
 
+    def beeps(self, timeOn, timeOff, repeat):
+        """
+            Make your beeper sing multiples *Beep*.
+            timeOn is the duration of the beep in seconds
+            timeOff is the duration of the silence in secons
+            repeat correspond to the number of time the beeper must beep.
+
+        """
+
+        self.notes(BeepBoop.Note.A, timeOn, timeOff, repeat)
+
+    def note(self, note, time):
+        """
+            Make your beeper sing a single note.
+            note is a note from the enum Note
+            time is the duration he the beep in seconds
+        """
+
+        if note == BeepBoop.Note.blank :
+            sleep(time)
+
+        delay = 1 / note / 2
+        cycles = int(time * note)
+
         for i in range(cycles):
             GPIO.output(self.pin, True)
             sleep(delay)
             GPIO.output(self.pin, False)
             sleep(delay)
 
-    def beeps(self, timeOn, timeOff, repeat):
+    def notes(self, note, timeOn, timeOff, repeat):
         """
-            Make your beeper to sing multiples *Beep*.
+            Make your beeper sing multiples notes.
             time is the duration of the beep in seconds
-            repeat correspond to the numer of time the beeper must beep.
+            timeOff is the duration of the silence in secons
+            repeat correspond to the number of time the beeper must beep.
+        """
 
         """
 
         for i in range(repeat):
             self.beep(timeOn)
             sleep(timeOff)
+
+    def song(self, notes):
+        for note in notes:
+            self.note(note['note'], note['time'])
