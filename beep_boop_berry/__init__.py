@@ -66,10 +66,10 @@ class BeepBoop():
             time is the duration he the beep in seconds
         """
 
-        if note == BeepBoop.Note.blank :
+        if note == BeepBoop.Note.blank:
             sleep(time)
 
-        delay = 1.0 / note / 2.0 / 2.0
+        delay = 1.0 / note / 2.0
         cycles = int(time * note)
 
         for i in range(cycles):
@@ -91,5 +91,11 @@ class BeepBoop():
             sleep(timeOff)
 
     def song(self, notes):
+        """
+            Make a song !
+            notes is a list of dict like {"note":BeepBoop.Note.A, "time":1}
+            See beep.py in folder Examples if you want a example !
+        """
+
         for note in notes:
             self.note(note['note'], note['time'])
