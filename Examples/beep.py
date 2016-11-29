@@ -10,7 +10,4 @@ beep.note(BeepBoop.Note.A, 1)
 beep.notes(BeepBoop.Note.C, 0.5, 0.5, 4)
 beep.song([{"note": BeepBoop.Note.G, "time": 1}, {"note": BeepBoop.Note.G, "time": 1}, {"note": BeepBoop.Note.G, "time": 1},
  {"note": BeepBoop.Note.Dd, "time": 0.5}, {"note": BeepBoop.Note.Ad, "time": 0.5}, {"note": BeepBoop.Note.G, "time": 1},
- {"note": BeepBoop.Note.Dd, "time": 0.5}, {"note": BeepBoop.Note.Ad, "time": 0.5}, {"note": BeepBoop.Note.G, "time": 1.5},
- {"note": BeepBoop.Note.D, "time": 1}, {"note": BeepBoop.Note.D, "time": 1}, {"note": BeepBoop.Note.D, "time": 1},
- {"note": BeepBoop.Note.Dd, "time": 0.5}, {"note": BeepBoop.Note.Ad, "time": 0.5}, {"note": BeepBoop.Note.Fd, "time": 0.5},
  {"note": BeepBoop.Note.Dd, "time": 0.5}, {"note": BeepBoop.Note.Ad, "time": 0.5}, {"note": BeepBoop.Note.G, "time": 1.5}])
