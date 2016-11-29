@@ -42,7 +42,7 @@ class BeepBoop():
             GPIO.output(self.pin, False)
             sleep(delay)
 
-    def beeps(self, time, repeat):
+    def beeps(self, timeOn, timeOff, repeat):
         """
             Make your beeper to sing multiples *Beep*.
             time is the duration of the beep in seconds
@@ -51,4 +51,5 @@ class BeepBoop():
         """
 
         for i in range(repeat):
-            self.beep(time)
+            self.beep(timeOn)
+            sleep(timeOff)
