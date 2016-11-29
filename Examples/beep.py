@@ -1,4 +1,4 @@
-import beep_boop_berry
+from .. import beep_boop_berry
 
 beep = BeepBoop(2)
 boop = BeepBoop(5)
