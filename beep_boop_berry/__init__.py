@@ -10,8 +10,8 @@ Todo:
 """
 
 from enum import IntEnum
+from time import sleep
 import RPi.GPIO as GPIO
-import time
 
 
 class BeepBoop():
@@ -38,9 +38,9 @@ class BeepBoop():
 
         for i in range(cycles):
             GPIO.output(self.pin, True)
-            time.sleep(delay)
+            sleep(delay)
             GPIO.output(self.pin, False)
-            time.sleep(delay)
+            sleep(delay)
 
     def beeps(self, time, repeat):
         """
