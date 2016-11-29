@@ -81,11 +81,6 @@ class BeepBoop():
             timeOff is the duration of the silence in secons
             repeat correspond to the number of time the beeper must beep.
         """
-<<<<<<< Updated upstream
-
-        """
-=======
->>>>>>> Stashed changes
 
         for i in range(repeat):
             self.note(note, timeOn)
