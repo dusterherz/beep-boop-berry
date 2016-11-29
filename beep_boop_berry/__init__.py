@@ -23,13 +23,17 @@ class BeepBoop():
         pin (int): the pin where the buzzer is connected
     """
     class Note(IntEnum):
-        A = 440
-        B = 494
-        C = 262
-        D = 294
-        E = 330
-        F = 349
-        G = 392
+        A = 440.0
+        Ad = 466.16
+        B = 493.88
+        C = 261.63
+        D = 293.66
+        Dd = 311.13
+        E = 329.63
+        F = 349.23
+        Fd = 369.99
+        G = 392.0
+        Gd = 415.30
         blank = 0
 
     def __init__(self, pin):
