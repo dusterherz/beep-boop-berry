@@ -39,12 +39,10 @@ class BeepBoop():
 
     def beep(self, time):
         """
-            Make your beeper to sing a small *Beep*.
+            Make your beeper sing a small *Beep*.
             time is the duration of the beep in seconds
         """
-        pitch = 440
-        delay = 1 / pitch / 2
-        cycles = int(time * pitch)
+        self.note(BeepBoop.Note.A, time)
 
     def beeps(self, timeOn, timeOff, repeat):
         """
@@ -90,7 +88,7 @@ class BeepBoop():
 >>>>>>> Stashed changes
 
         for i in range(repeat):
-            self.beep(timeOn)
+            self.note(note, timeOn)
             sleep(timeOff)
 
     def song(self, notes):
