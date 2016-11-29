@@ -51,7 +51,7 @@ class BeepBoop():
 
         """
 
-        notes(BeepBoop.Note.A, timeOn, timeOff, repeat)
+        self.notes(BeepBoop.Note.A, timeOn, timeOff, repeat)
 
     def note(self, note, time):
         """
@@ -72,5 +72,5 @@ class BeepBoop():
     def notes(self, note, timeOn, timeOff, repeat):
 
         for i in range(repeat):
-            note(note, timeOn)
+            self.note(note, timeOn)
             sleep(timeOff)
