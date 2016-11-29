@@ -33,7 +33,7 @@ class BeepBoop():
             time is the duration of the beep in seconds
         """
         delay = 1 / 440 / 2
-        cycles = int(duration * pitch)
+        cycles = int(time * pitch)
 
         for i in range(cycles):
             GPIO.output(self.pin, True)
